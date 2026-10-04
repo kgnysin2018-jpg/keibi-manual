@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>2号警備 現場マニュアル｜片側交互通行 LEVEL 1</title>
+  <style>
+    :root{
+      --bg:#f3f4f6; --card:#fff; --text:#111827; --muted:#4b5563;
+      --dark:#111827; --accent:#f59e0b; --danger:#b91c1c; --ok:#166534;
+      --line:#d1d5db;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.7; font-size:17px;
+    }
+    header{
+      background:var(--dark); color:white; padding:18px 16px 20px;
+      position:sticky; top:0; z-index:10; box-shadow:0 2px 8px #0003;
+    }
+    header .small{font-size:13px; opacity:.8}
+    header h1{font-size:21px; line-height:1.35; margin:4px 0 0}
+    main{max-width:720px; margin:auto; padding:14px 12px 90px}
+    .notice{
+      background:#fff7ed; border-left:6px solid var(--accent); padding:12px 14px;
+      border-radius:10px; margin-bottom:14px; font-size:15px;
+    }
+    .card{
+      background:var(--card); border-radius:14px; padding:18px 16px;
+      margin:12px 0; box-shadow:0 1px 5px #00000012;
+    }
+    h2{font-size:21px; margin:0 0 12px}
+    h3{font-size:18px; margin:18px 0 8px}
+    .menu{
+      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0;
+    }
+    .menu a{
+      display:flex; align-items:center; justify-content:center; min-height:62px;
+      padding:10px; text-align:center; text-decoration:none; font-weight:700;
+      color:var(--text); background:white; border:1px solid var(--line); border-radius:12px;
+    }
+    .diagram{
+      overflow-x:auto; background:#eef2f7; border-radius:12px; padding:14px 8px;
+      text-align:center;
+    }
+    .road{
+      min-width:310px; max-width:520px; margin:auto;
+    }
+    .lane{
+      position:relative; background:#4b5563; color:white; min-height:72px;
+      border-top:4px solid white; border-bottom:4px solid white;
+      display:flex; align-items:center; justify-content:space-around; padding:6px;
+    }
+    .works{
+      background:#fde68a; color:#78350f; border:2px dashed #b45309;
+      padding:8px; font-weight:800;
+    }
+    .guard{font-size:28px}
+    .step{
+      display:grid; grid-template-columns:42px 1fr; gap:10px; align-items:start;
+      padding:12px 0; border-bottom:1px solid #e5e7eb;
+    }
+    .step:last-child{border-bottom:0}
+    .num{
+      width:38px; height:38px; border-radius:50%; background:var(--dark); color:white;
+      display:flex; align-items:center; justify-content:center; font-weight:800;
+    }
+    .check label{
+      display:block; padding:11px 4px; border-bottom:1px solid #e5e7eb;
+    }
+    input[type=checkbox]{width:22px;height:22px;vertical-align:middle;margin-right:9px}
+    .radio{
+      background:#f9fafb; padding:12px; border-radius:10px; margin:8px 0;
+    }
+    .danger{border-left:6px solid var(--danger)}
+    .safe{border-left:6px solid var(--ok)}
+    .radio-box{
+      background:#eef2ff; border-radius:10px; padding:12px; margin:9px 0;
+    }
+    .tag{font-weight:800}
+    details{
+      background:#f9fafb; border:1px solid var(--line); border-radius:10px;
+      padding:12px; margin-top:10px;
+    }
+    summary{font-weight:800; cursor:pointer}
+    .top{
+      position:fixed; right:14px; bottom:16px; background:var(--dark); color:white;
+      text-decoration:none; width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;font-size:22px;
+      box-shadow:0 3px 12px #0004;
+    }
+    footer{font-size:13px;color:var(--muted);margin-top:20px}
+    @media (max-width:380px){
+      body{font-size:16px}.menu{grid-template-columns:1fr}header h1{font-size:19px}
+    }
+  </style>
+</head>
+<body id="top">
+<header>
+  <div class="small">2号警備 現場マニュアル / 道路規制編</div>
+  <h1>LEVEL 1｜直線型・基本の片側交互通行</h1>
+</header>
+
+<main>
+  <div class="notice">
+    <strong>重要：</strong>これは自主学習・現場前確認用の試作教材です。
+    実際の現場では、道路使用許可等の条件、配置・規制計画、所属警備会社・施工会社の手順、
+    現場責任者の指示を優先してください。
+  </div>
+
+  <nav class="menu" aria-label="ページ内メニュー">
+    <a href="#diagram">🗺️ 配置図</a>
+    <a href="#check">✅ 30秒チェック</a>
+    <a href="#steps">🚦 基本手順</a>
+    <a href="#radio">📻 無線連携</a>
+    <a href="#danger">⚠️ 危険ポイント</a>
+    <a href="#quiz">📝 確認問題</a>
+  </nav>
+
+  <section class="card" id="diagram">
+    <h2>🗺️ 1. 基本配置</h2>
+    <p>直線で、両端の警備員が互いの状況を確認しやすい基本形を想定します。</p>
+    <div class="diagram">
+      <div class="road">
+        <div>🚗 🚗　← B側待機車両</div>
+        <div class="lane">
+          <span class="guard">👷 B</span>
+          <span>← 通行可能区間 →</span>
+          <span class="guard">👷 A</span>
+        </div>
+        <div class="works">🚧 工事区間（片側を規制） 🚧</div>
+        <div>A側待機車両 →　🚙 🚙</div>
+      </div>
+    </div>
+    <p><strong>基本：</strong>一方を確実に停止させ、規制区間内の安全を確認してから反対側を進行させます。</p>
+  </section>
+
+  <section class="card check" id="check">
+    <h2>✅ 2. 現場前30秒チェック</h2>
+    <label><input type="checkbox"> 規制区間・工事範囲を確認</label>
+    <label><input type="checkbox"> A側・B側の担当を確認</label>
+    <label><input type="checkbox"> 無線の送受信を確認</label>
+    <label><input type="checkbox"> 自分の退避場所を確認</label>
+    <label><input type="checkbox"> 歩行者・自転車・脇道を確認</label>
+    <label><input type="checkbox"> 工事車両の出入りを確認</label>
+    <label><input type="checkbox"> 現場固有の合図・運用方法を確認</label>
+  </section>
+
+  <section class="card" id="steps">
+    <h2>🚦 3. 基本手順</h2>
+    <div class="step"><div class="num">1</div><div><strong>停止</strong><br>自分側の車両を安全な位置で停止させます。</div></div>
+    <div class="step"><div class="num">2</div><div><strong>相手側を確認</strong><br>相手側が停止状態であることを、現場で定められた方法で確認します。</div></div>
+    <div class="step"><div class="num">3</div><div><strong>規制区間を確認</strong><br>残留車両、歩行者、自転車、工事車両などを確認します。</div></div>
+    <div class="step"><div class="num">4</div><div><strong>進行誘導</strong><br>安全を確認したうえで、自分側の車両を分かりやすく誘導します。</div></div>
+    <div class="step"><div class="num">5</div><div><strong>最後尾を把握</strong><br>自分側から送り出した最後の車両を明確に把握します。</div></div>
+    <div class="step"><div class="num">6</div><div><strong>通過確認</strong><br>最後尾車両が規制区間から抜けたことを確認してから、次の切替えに移ります。</div></div>
+  </section>
+
+  <section class="card" id="radio">
+    <h2>📻 4. 無線連携</h2>
+    <p>無線文言は所属会社・現場のルールを優先します。以下は<strong>情報の伝え方を学ぶ例</strong>です。</p>
+    <div class="radio-box"><span class="tag">A：</span>「A側、○台。最後尾○○。」</div>
+    <div class="radio-box"><span class="tag">B：</span>「了解。B側停止。」</div>
+    <div class="radio-box"><span class="tag">A：</span>「最後尾、そちらへ向かっています。」</div>
+    <div class="radio-box"><span class="tag">B：</span>「最後尾、通過確認。」</div>
+    <div class="notice"><strong>聞き取れなかった場合：</strong>推測して切り替えず、必ず再確認します。</div>
+  </section>
+
+  <section class="card danger" id="danger">
+    <h2>⚠️ 5. 危険ポイント</h2>
+    <p>● 車両の真正面など、逃げ場のない位置に立たない。</p>
+    <p>● 「相手側は止まっているはず」という思い込みで進行させない。</p>
+    <p>● 最後尾車両を見失ったまま切り替えない。</p>
+    <p>● 歩行者・自転車・脇道からの流入を見落とさない。</p>
+    <p>● 無線不良・状況不明時は、安全側で停止・再確認する。</p>
+  </section>
+
+  <section class="card safe" id="quiz">
+    <h2>📝 6. 確認問題</h2>
+    <p><strong>Q1.</strong> 相手からの無線が一部聞き取れませんでした。どうする？</p>
+    <div class="radio">A　聞こえた範囲から判断して車を通す</div>
+    <div class="radio">B　再度確認し、状況が明確になるまで進行させない</div>
+    <div class="radio">C　待機車両が増えたら先に通す</div>
+    <details>
+      <summary>答えを見る</summary>
+      <p><strong>B</strong>。不明な情報を推測で補わず、安全な状態を確認してから切り替えます。</p>
+    </details>
+
+    <p style="margin-top:22px"><strong>Q2.</strong> 自分側の最後尾車両を見失いました。どうする？</p>
+    <div class="radio">A　時間を見て反対側へ切り替える</div>
+    <div class="radio">B　規制区間の車両状況を確実に確認する</div>
+    <details>
+      <summary>答えを見る</summary>
+      <p><strong>B</strong>。規制区間内に車両が残っていないことを確実に確認してから次の誘導に移ります。</p>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>次のLEVEL</h2>
+    <p>LEVEL 2：カーブ等で相手警備員が見えない片側交互通行</p>
+    <p>LEVEL 3：通行ラインが途中で変化するS字型規制</p>
+  </section>
+
+  <footer>
+    Ver.0.1 試作版｜自主学習用<br>
+    ※公開前に、法令・公的資料・所属会社の教育内容と照合して内容を更新してください。
+  </footer>
+</main>
+
+<a class="top" href="#top" aria-label="ページ上部へ">↑</a>
+</body>
+</html>
