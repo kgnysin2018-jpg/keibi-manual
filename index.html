@@ -123,19 +123,29 @@
   <section class="card" id="diagram">
     <h2>🗺️ 1. 基本配置</h2>
     <p>直線で、両端の警備員が互いの状況を確認しやすい基本形を想定します。</p>
-    <div class="diagram">
-      <div class="road">
-        <div>🚗 🚗　← B側待機車両</div>
-        <div class="lane">
-          <span class="guard">👷 B</span>
-          <span>← 通行可能区間 →</span>
-          <span class="guard">👷 A</span>
-        </div>
-        <div class="works">🚧 工事区間（片側を規制） 🚧</div>
-        <div>A側待機車両 →　🚙 🚙</div>
-      </div>
+    
+      
+<div class="diagram">
+  <div class="road">
+    <p>【B側】待機車両 🚗 🚗</p>
+    <p>▼ B側停止位置</p>
+
+    <div class="lane">
+      <span>👷 B側警備員</span>
+      <span>通行可能区間</span>
+      <span>👷 A側警備員</span>
     </div>
-    <p><strong>基本：</strong>一方を確実に停止させ、規制区間内の安全を確認してから反対側を進行させます。</p>
+
+    <div class="works">
+      🚧 工事区間（片側規制） 🚧
+    </div>
+
+    <p>▲ A側停止位置</p>
+    <p>【A側】待機車両 🚙 🚙</p>
+  </div>
+</div>
+
+   <p><strong>基本：</strong>一方を確実に停止させ、規制区間内の安全を確認してから反対側を進行させます。</p>
   </section>
 
   <section class="card check" id="check">
